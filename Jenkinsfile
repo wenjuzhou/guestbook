@@ -5,7 +5,7 @@ node{
 	sh "git rev-parse --short HEAD > commit-id"
 	tag = readFile('commit-id').replace("\n", "").replace("\r", "")
 
-    registryHost = "hub.yuansuan.cn/xx/"
+    registryHost = "hub.yuansuan.cn/zwj/"
 
 	appName_backend = "guestbook_backend"
 	appName_frontend = "guestbook_frontend"
