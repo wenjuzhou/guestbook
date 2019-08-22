@@ -15,13 +15,13 @@ node{
 
 	stage "Build"
 
-        sh "echo "build 镜像" "
+        sh "echo build 镜像 "
         sh "docker build -t ${imageName_frontend} -f php-redis/Dockerfile php-redis"
         sh "docker build -t ${imageName_backend} -f redis-slave/Dockerfile redis-slave"
     
     stage "Push"
 
-    	sh "echo "push 镜像" "
+    	sh "echo push 镜像 "
         sh "docker login hub.yuansuan.cn -u admin -p Yskj2407"
         sh "docker tag ${imageName_backend} ${registryHost}${imageName_backend}"
         sh "docker push ${registryHost}${imageName_backend}"
@@ -30,7 +30,7 @@ node{
 
     stage "Deploy"
 
-    	sh "echo "deploy 镜像" "
+    	sh "echo deploy 镜像 "
         sh "kubectl set image deploy redis-slave slave=${registryHost}${imageName_backend}"
         sh "kubectl set image deploy frontend php-redis=${registryHost}${imageName_frontend}"
 
