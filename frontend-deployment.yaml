@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: hub.yuansuan.cn/xx/guestbook_backend:7cb3d71
+        image: hub.yuansuan.cn/xx/guestbook_frontend:7cb3d71
         resources:
           requests:
             cpu: 100m
