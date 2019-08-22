@@ -31,7 +31,7 @@ node{
     stage "Deploy"
 
     	sh "echo deploy 镜像 "
-        sh "kubectl set image deploy redis-slave slave=${registryHost}${imageName_backend}"
-        sh "kubectl set image deploy frontend php-redis=${registryHost}${imageName_frontend}"
+        sh "kubectl scale deployment redis-slave --replicas=5"
+        sh "kubectl set image deployment frontend php-redis=${registryHost}${imageName_frontend}"
 
 }
